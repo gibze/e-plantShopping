@@ -131,7 +131,7 @@ function ProductList({ onHomeClick }) {
             ]
         },
         {
-            category: "Medicinal Plants",
+            category: "Medicinal Plants 2",
             plants: [
                 {
                     name: "Aloe Vera",
