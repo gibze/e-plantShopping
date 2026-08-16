@@ -4,7 +4,7 @@ import CartItem from './CartItem';
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
-    const [AddedToCart, setAddedToCart] = useState({});    
+    const [addedToCart, setAddedToCart] = useState({});    
     
     const plantsArray = [
         {
@@ -234,9 +234,14 @@ function ProductList({ onHomeClick }) {
         textDecoration: 'none',
     }
 
-    const handleToCart = (e) => {
-         (plant.name)
-    }
+    const handleToCart = (product) => {
+         dispatchEvent(addItem(product)); //Dispatch the action to add the product to the cart (Redux action)
+
+         setAddedToCart((prevState) => ({
+            ...prevState, //Spread the previous state to retain existing entries
+            [product.name]: true,
+         }));
+    };
 
     const handleHomeClick = (e) => {
         e.preventDefault();
